@@ -1,0 +1,65 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+//listo
+model Pedido {
+  pedidoid    Int      @id @default(autoincrement())
+  estado      String
+  productoid    String
+  fechapedido DateTime @default(now())
+  usuarioid   Int
+}
+
+model Carritocompra {
+  carritoid  Int @id @default(autoincrement())
+  cantidad   Int
+  productoid Int
+  usuarioid  Int
+}
+
+//listo
+model Detallespedido {
+  detallepedidoid Int     @id @default(autoincrement())
+  // Otras propiedades...
+  cantidad        Int
+  precioUnitario  Decimal
+  pedidoid        Int
+  productoid      Int
+}
+
+//listo
+model Historialcambio {
+  id          Int      @id @default(autoincrement())
+  // Otras propiedades...
+  FechaCambio DateTime
+  pedidoid    Int
+  usuarioid   Int
+}
+
+
+//listo
+model Producto {
+  productoid  Int    @id @default(autoincrement())
+  nombre      String
+  descripcion String
+  precio      Float
+  stock       Int
+}
+
+//listo
+model Usuario {
+  usuarioid         Int    @id @default(autoincrement())
+  nombre            String
+  correoElectronico String
+  clave             String
+  rol               String
+}
