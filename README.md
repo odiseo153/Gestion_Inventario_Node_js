@@ -37,7 +37,7 @@ Antes de comenzar, asegúrate de tener [Node.js](https://nodejs.org/) y [npm](ht
    Inicia la aplicación con el siguiente comando:
 
    ```bash
-   npm start
+   npm run dev
    ```
 
    La aplicación estará disponible en [http://localhost:your_preferred_port](http://localhost:your_preferred_port).
